@@ -1,0 +1,70 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+.login {
+    height: 300px;
+    width: 250px;
+    margin: auto;
+    border-radius: 23px;
+    user-focus: true;
+    padding: 15px;
+    text-align: center;
+    position: center;
+    display: block;
+    background-color: #4b5c66;
+}
+
+.login{
+    font-family: Roboto;
+    text-align: center;
+}
+.bdylogin {
+    position: center;
+    padding: 10%;
+    display: block;
+    background-image: url("images/back.jpg");
+    background-repeat: no-repeat;
+
+}
+
+.login input{
+    text-align: center;
+    font-family: Roboto;
+    outline: none;
+    background: none;
+    border: 2px solid #353e46;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    margin: 5px auto;
+    color: white;
+    transition: 0.25s;
+
+
+}
+
+.logotipo{
+    width: 100%;
+    margin-top:10px;
+    margin-bottom: 10px;
+    display: block;
+    height: 30%;
+    background-image: url(#{resource['css/images/logo.png']});
+    background-repeat: no-repeat;
+    border-radius: 7px;
+    alignment: left;
+    background-color: #353e46;
+
+}
+.login button {
+    border-radius: 5px;
+    font-size: 14px;
+    background: none;
+    color: white;
+    border: 1px solid black;
+    transition: 0.25s;
+    width: 60%;
+    margin: 20px auto;
+    padding: 13px 6px;
+}
+
+
+  

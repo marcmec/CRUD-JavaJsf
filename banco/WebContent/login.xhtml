@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <title> Início: Login </title>
+    <h:outputStylesheet name="css/login.css"/>
+</h:head>
+<body class="bdylogin">
+<p:growl id="msg" showDetail="true"/>
+    <h:form styleClass="login" id="login">
+        <div class="logotipo">
+        </div>
+        <div class="textbox">
+            <p:watermark for="inputuser" value="Usuário" id="markuser"/>
+        <p:inputText  styleClass="input" id="inputuser" value="#{loginBean.logarUsuario.usuario}" required="true" requiredMessage=" Insira um usuario válido!"/>
+        </div>
+        <div class="textbox">
+            <p:watermark for="inputsenha" value="Senha" id="marksenha"/>
+        <p:password styleClass="input" id="inputsenha" value="#{loginBean.logarUsuario.senha}" required="true" requiredMessage=" Insira uma senha!"/>
+        </div>
+        <p:commandButton id="btnlogin" value="Entrar" action="#{loginBean.realizarLoginDoUsuario()}" update="login" ajax="true" styleClass="btnlogin" onclick="PF('Basic Dialog').show();"/>
+        <p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40" onShow="true">
+            <h:outputText value="Resistance to PrimeFaces is futile!" />
+        </p:dialog>
+
+    </h:form>
+
+</body>
+</html>

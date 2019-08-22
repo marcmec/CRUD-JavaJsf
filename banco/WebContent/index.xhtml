@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h:form>
+    <p:panelGrid columns="1">
+    <p:commandButton value="Buscar" action="#{telbean.atualizarLista()}" update="dados" process="@this"/>
+    </p:panelGrid>
+    <p:dataTable value="#{telbean.listaTelefonica}" var="telefone" id="dados">
+    <p:column headerText="id">
+        <h:outputText value="#{telefone.id}"/>
+    </p:column>
+    <p:column headerText="orgao">
+        <h:outputText value="#{telefone.orgao}"/>
+    </p:column>
+    <p:column headerText="setor">
+        <h:outputText value="#{telefone.setor}"/>
+    </p:column>
+    <p:column headerText="responsavel">
+        <h:outputText value="#{telefone.responsavel}"/>
+    </p:column>
+    <p:column headerText="ramal">
+        <h:outputText value="#{telefone.ramal}"/>
+    </p:column>
+</p:dataTable>
+</h:form>
+</body>
+</html>

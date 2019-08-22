@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <title> Lista Telefônica</title>
+    <h:outputStylesheet name="css/pages.css"/>
+
+</h:head>
+<f:metadata>
+<f:viewAction action="#{loginBean.verificarUsuarioLogado()}" />
+</f:metadata>
+<h:body>
+    <div id="titulo">
+    <h3> Lista de Contatos</h3>
+    </div>
+    <p:growl id="msg" showDetail="true"/>
+    <h:form id="form">
+        <p:outputLabel value="Orgão"/>
+        <p:inputText value="#{telbean.telefone.orgao}" required="true" requiredMessage="insisra um orgão válido"/>
+        <p:outputLabel value="Setor"/>
+        <p:inputText value="#{telbean.telefone.setor}" required="true" requiredMessage="insira um setor"/>
+        <p:outputLabel value="Responsável"/>
+        <p:inputText value="#{telbean.telefone.responsavel}" required="true" requiredMessage="insira um responsavel/servidor"/>
+        <p:outputLabel value="Ramal"/>
+        <p:inputText value="#{telbean.telefone.ramal}" required="true" requiredMessage="insira um contato telefone/celular"/>
+       <p:panelGrid columns="4">
+        <p:commandButton value="Inserir" action="#{telbean.inserirTelefone()}" update="@form"/>
+        <p:commandButton value="Buscar" action="#{telbean.atualizarLista()}" update="form:dados" process="@this"/>
+        <p:commandButton value="Editar" action="#{telbean.editarTelefone()}" update="dados"/>
+        <p:commandButton value="Sair" action="#{loginBean.finalizarSessao()}" process="@this"/>
+       </p:panelGrid>
+        <p:dataTable value="#{telbean.listaTelefonica}" var="telefone" id="dados">
+            <p:column headerText="Ação">
+                <p:commandButton value="Selecionar" action="#{telbean.selecionarTelefone(telefone)}" update="@form" process="@this"/>
+                <p:commandButton value="Excluir" action="#{telbean.excluirTelefone()}" update="form:dados"/>
+            </p:column>
+            <p:column headerText="id">
+                <h:outputText value="#{telefone.id}"/>
+            </p:column>
+            <p:column headerText="orgao">
+                <h:outputText value="#{telefone.orgao}"/>
+            </p:column>
+            <p:column headerText="setor">
+                <h:outputText value="#{telefone.setor}"/>
+            </p:column>
+            <p:column headerText="responsavel">
+                <h:outputText value="#{telefone.responsavel}"/>
+            </p:column>
+            <p:column headerText="ramal">
+                <h:outputText value="#{telefone.ramal}"/>
+            </p:column>
+        </p:dataTable>
+
+    </h:form>
+
+
+</h:body>
+
+
+</html>
